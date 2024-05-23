@@ -69,5 +69,25 @@ namespace ExpenseManager.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Oxygen_Icons_org_Oxygen_Actions_list_add_user_128 {
+            get {
+                object obj = ResourceManager.GetObject("Oxygen_Icons_org_Oxygen_Actions_list_add_user_128", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Oxygen_Icons_org_Oxygen_Apps_preferences_desktop_user_password_128 {
+            get {
+                object obj = ResourceManager.GetObject("Oxygen_Icons_org_Oxygen_Apps_preferences_desktop_user_password_128", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

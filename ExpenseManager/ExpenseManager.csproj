@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Custom-Icon-Design-Flatastic-4-US-dollar.24.png" />
+    <None Remove="Resources\Oxygen-Icons.org-Oxygen-Apps-preferences-desktop-user-password.128.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Custom-Icon-Design-Flatastic-4-US-dollar.24.png" />
+    <Resource Include="Resources\Oxygen-Icons.org-Oxygen-Apps-preferences-desktop-user-password.128.png" />
   </ItemGroup>
 
   <ItemGroup>

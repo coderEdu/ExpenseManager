@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseManager"
         mc:Ignorable="d"
-        Title="Expense Manager - Login" Height="450" Width="800" Activated="Window_Activated" Icon="/Custom-Icon-Design-Flatastic-4-US-dollar.24.png">
+        Title="Expense Manager - Login" Height="300" Width="550" Activated="Window_Activated" Icon="/Custom-Icon-Design-Flatastic-4-US-dollar.24.png">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="img_login" Source="pack://application:,,,/Resources/Oxygen-Icons.org-Oxygen-Apps-preferences-desktop-user-password.128.png" HorizontalAlignment="Center" Height="191" Margin="0,50,0,0" VerticalAlignment="Top" Width="184"/>
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Center">
+            <Label Name="lbl_user" Content="Usuario" FontSize="12"></Label>
+            <TextBox x:Name="txt_user" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="235" Height="28" FontSize="16" TextAlignment="Left"/>
+            <Label Name="lbl_pass" Content="Contraseña" FontSize="12" Margin="0, 15, 0, 0"></Label>
+            <PasswordBox x:Name="txt_pass" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="235" Height="28" FontSize="16"/>
+            <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
+                <Button x:Name="btn_login" Content="Ingresar" Width="110" Height="30"/>
+                <Button x:Name="btn_cancel" Content="Cancelar" Width="110" Margin="15,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
