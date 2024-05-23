@@ -1,0 +1,1 @@
+﻿select * from usuarios where usuarios.id = 1;

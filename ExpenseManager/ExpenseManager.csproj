@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Custom-Icon-Design-Flatastic-4-US-dollar.24.png" />
     <Resource Include="Resources\Oxygen-Icons.org-Oxygen-Apps-preferences-desktop-user-password.128.png" />
   </ItemGroup>
