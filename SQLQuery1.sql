@@ -1,1 +1,1 @@
-﻿select * from usuarios where usuarios.id = 1;
+﻿select usuarios.usuario from usuarios where usuarios.id = 1;

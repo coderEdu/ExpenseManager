@@ -26,7 +26,7 @@ namespace ExpenseManager
             InitializeComponent();
             var connectionString = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
             sqlConnection = new SqlConnection(connectionString);
-            //  MessageBox.Show(connectionString);
+            // MessageBox.Show(connectionString);
         }
 
         private void Window_Activated(object sender, EventArgs e)
@@ -38,18 +38,16 @@ namespace ExpenseManager
         {
             try
             {
-                string query = "select * from usuarios where usuarios.id = @UserId";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
+                string queryString = "select usuarios.usuario from usuarios where usuarios.id = 2";
+                var command = new SqlCommand(queryString, sqlConnection);
                 sqlConnection?.Open();
-
-                sqlCommand.Parameters.Clear();
-                sqlCommand.Parameters.AddWithValue("@UserId", "1");
-
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-
-                if (sqlConnection?.State == ConnectionState.Open) { MessageBox.Show("Opened"); }
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        MessageBox.Show(String.Format("{0}", reader[0]));
+                    }
+                }
             }
             catch (Exception ex)
             {
