@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExpenseManager.Model;
 
 namespace ExpenseManager
 {
@@ -19,13 +20,9 @@ namespace ExpenseManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        SqlConnection? sqlConnection;
-
         public MainWindow()
         {
             InitializeComponent();
-            var connectionString = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
-            sqlConnection = new SqlConnection(connectionString);
             // MessageBox.Show(connectionString);
         }
 
@@ -55,22 +52,12 @@ namespace ExpenseManager
             //}
             //finally { sqlConnection?.Close(); }
 
-            if (txt_user.Text.Length > 0 && txt_pass.Password.Length > 0) 
+            if (txt_user.Text.Length > 0 && txt_pass.Password.Length > 0)
             {
-                try
-                {
-                    string queryString = "SELECT COUNT(*) AS match FROM usuarios WHERE usuarios.usuario = @user AND usuarios.clave = @pass";
-                    var command = new SqlCommand(queryString, sqlConnection);
-                    command.Parameters.Clear();
-                    command.Parameters.AddWithValue("@user", txt_user.Text ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@pass", txt_pass.Password.ToString() ?? (object)DBNull.Value);
-                    sqlConnection?.Open();
-                    MessageBox.Show(((int)command.ExecuteScalar() > 0) ? "It matches" : "It doesn't matches");           
-                }
-                catch (Exception ex) { MessageBox.Show(ex.ToString()); }
-                finally { sqlConnection?.Close(); }
+                // validating login
+                int queryResult = Queries.ValidateLogin(txt_user.Text, txt_pass.Password.ToString());
+                MessageBox.Show((queryResult > 0) ? "It matches" : "It doesn't matches");
             }
-
 
         }
 
