@@ -55,21 +55,22 @@ namespace ExpenseManager
             //}
             //finally { sqlConnection?.Close(); }
 
-            try
+            if (txt_user.Text.Length > 0 && txt_pass.Password.Length > 0) 
             {
-                string queryString = "SELECT COUNT(*) AS match FROM usuarios WHERE usuarios.usuario = @user AND usuarios.clave = @pass";
-                var command = new SqlCommand(queryString, sqlConnection);
-                command.Parameters.Clear();
-                command.Parameters.AddWithValue("@user", txt_user.Text ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@pass", txt_pass.Password.ToString() ?? (object)DBNull.Value);
-                sqlConnection?.Open();
-                MessageBox.Show(((int)command.ExecuteScalar() > 0) ? "It matches" : "It doesn't matches");           
+                try
+                {
+                    string queryString = "SELECT COUNT(*) AS match FROM usuarios WHERE usuarios.usuario = @user AND usuarios.clave = @pass";
+                    var command = new SqlCommand(queryString, sqlConnection);
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@user", txt_user.Text ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@pass", txt_pass.Password.ToString() ?? (object)DBNull.Value);
+                    sqlConnection?.Open();
+                    MessageBox.Show(((int)command.ExecuteScalar() > 0) ? "It matches" : "It doesn't matches");           
+                }
+                catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+                finally { sqlConnection?.Close(); }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally { sqlConnection?.Close(); }
+
 
         }
 
