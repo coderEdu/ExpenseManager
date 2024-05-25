@@ -33,25 +33,6 @@ namespace ExpenseManager
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    string queryString = "select usuarios.usuario from usuarios where usuarios.id = 2";
-            //    var command = new SqlCommand(queryString, sqlConnection);
-            //    sqlConnection?.Open();
-            //    using (var reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            MessageBox.Show(String.Format("{0}", reader[0]));
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
-            //finally { sqlConnection?.Close(); }
-
             if (txt_user.Text.Length > 0 && txt_pass.Password.Length > 0)
             {
                 // validating login
